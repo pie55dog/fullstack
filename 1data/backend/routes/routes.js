@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 const EarringSchema = require('../models/Earring.js')
 const OutSchema = require('../models/Brace.js')
-
+console.log(EarringSchema)
 
 //GENERAL
 //Read/get by id
-router.get('/:id', (req, res) => {
+router.get('/earrings/:id', (req, res) => {
     EarringSchema.findById(req.params.id)
     .then(earring => {
       console.log("succesfully got one!")
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 //
 //
 
-//we will be using the '/add' to do a POST request
+//this makes a new earring
 router.post('/new/ring', (req, res) => {
     EarringSchema.create(req.body)
     .then(earring => {
@@ -41,7 +41,7 @@ router.post('/new/ring', (req, res) => {
 })
 
 
-
+//this deletes an earing
    
 router.delete('/remove/ear', (req, res) => {
   EarringSchema.findOneAndDelete(req.body)
@@ -57,18 +57,20 @@ router.delete('/remove/ear', (req, res) => {
 
 })
 
-router.get('/ear', (req, res) => {
+// this gets all the earring data
+router.get('/earrings', (req, res) => {
   EarringSchema.find({
   })
   //'then' happens if find is succesful
   .then(earring => {
     console.log("succesfully got entire db!")
     console.log(earring)
-    res.json(earring)
+    res.send(earring)
   })
   //if theres an error, 'catch' happens instead
   .catch(err => {
     console.error(err)
+    res.send(err)
   })
 })
    
@@ -85,10 +87,13 @@ module.exports = router
 ///
 //
 
+
+
 //replace :boxname with name of box ?box=closet
 //1. find earring
 //2. add to box
 //3. save box version with earring
+// This adds an earing to a box
 router.put('/addtobox/:boxname', (req, res) => {
   EarringSchema.findOne((req.query)) .then(newEar => {
   OutSchema.findOne({boxmaster: req.params.boxname})
@@ -105,6 +110,7 @@ router.put('/addtobox/:boxname', (req, res) => {
 
 })
 
+//this makes a new box
 router.post('/new/box', (req, res) => {
   OutSchema.create(req.body)
   .then(box => {
@@ -118,17 +124,18 @@ router.post('/new/box', (req, res) => {
   
 })
 
+//this gets all the box data
+
 router.get('/box', (req, res) => {
   OutSchema.find({
   })
-  //'then' happens if find is succesful
-  .then(earring => {
+  .then(box => {
     console.log("succesfully got entire db!")
-    console.log(earring)
-    res.json(earring)
+    console.log(box)
+    res.send(box)
   })
-  //if theres an error, 'catch' happens instead
   .catch(err => {
     console.error(err)
+    res.send(err)
   })
 })
