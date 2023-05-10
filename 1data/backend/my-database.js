@@ -13,7 +13,7 @@ _connect() {
      mongoose.connect(`mongodb://${server}/${database}`, { useNewUrlParser: true, useUnifiedTopology: true })
        .then(() => {
         //UN COMMENT TO WIPE DATABASE
-        mongoose.connection.db.dropDatabase()
+        //mongoose.connection.db.dropDatabase()
         dbSuccess()
       })
 

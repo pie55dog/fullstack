@@ -6,7 +6,7 @@ console.log(EarringSchema)
 
 //GENERAL
 //Read/get by id
-router.get('/earrings/:id', (req, res) => {
+router.get('/earring/:id', (req, res) => {
     EarringSchema.findById(req.params.id)
     .then(earring => {
       console.log("succesfully got one!")
@@ -27,7 +27,7 @@ router.get('/earrings/:id', (req, res) => {
 //
 
 //this makes a new earring
-router.post('/new/ring', (req, res) => {
+router.post('/new/earring', (req, res) => {
     EarringSchema.create(req.body)
     .then(earring => {
       console.log("succesfully added name!")
@@ -131,6 +131,21 @@ router.get('/box', (req, res) => {
   })
   .then(box => {
     console.log("succesfully got entire db!")
+    console.log(box)
+    res.send(box)
+  })
+  .catch(err => {
+    console.error(err)
+    res.send(err)
+  })
+})
+
+//this one gets one box based on the name of the box in the url
+router.get('/onebox/:name', (req, res) => {
+  OutSchema.findOne({boxmaster: req.params.name}
+  )
+  .then(box => {
+    console.log("succesfully got one box")
     console.log(box)
     res.send(box)
   })
