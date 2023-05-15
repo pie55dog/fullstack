@@ -65,7 +65,7 @@ router.get('/earrings', (req, res) => {
   .then(earring => {
     console.log("succesfully got entire db!")
     console.log(earring)
-    res.send(earring)
+    res.json(earring)
   })
   //if theres an error, 'catch' happens instead
   .catch(err => {

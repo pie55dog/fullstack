@@ -2,27 +2,53 @@ import './App.css'
 import React from 'react'
 
 
-async function fetchBox(boxname) {
-    const data = await fetch("htpp://localhost:3000/box/"+{boxname})
-    return data.json()
+function fetchBox() {
+    const data = fetch("http://localhost:3000/box")
+    .then(earring => {
+        return earring.json()
+       })
+    .catch (err => {
+        console.error(err)
+        return "error"
+      })
+    return data
+
+    
+
 }
 export default class BoxClass extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            boximport : fetchBox(this.props.boxname)
-  
-        }}       
+            boxname : this.props.boxname,
+            boximport : []
 
+           
+  
+        }
+        const fetchbox = fetchBox()
+    }       
     
+    componentDidMount() {
+        fetchBox () .then (result => {
+            this.setState({
+                boximport : result
+            });
+        })
+    }
+
     render()
      {
         console.log('this is in the render')
+        console.log("BOXIMPORT" + this.state.boximport)
 
         return(
             <div>
             <p>hey :D</p>
+
+            <div>{this.state.boximport.map(box => <div>{box.boxmaster}</div>)}</div>
             </div>
+
             
             
         )
