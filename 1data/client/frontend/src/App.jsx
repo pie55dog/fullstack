@@ -41,12 +41,16 @@ export default class BoxClass extends React.Component {
      {
         console.log('this is in the render')
         console.log("BOXIMPORT" + this.state.boximport)
+        console.log(this.state.boximport.map(box => <div>{box.items.color}</div>))
 
         return(
             <div>
             <p>hey :D</p>
 
-            <div>{this.state.boximport.map(box => <div>{box.boxmaster}</div>)}</div>
+            <div>{this.state.boximport.map(box => <div>{box.boxmaster}</div>)}
+             
+            </div>
+            <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div>
             </div>
 
             
