@@ -42,9 +42,9 @@ export default class EarClass extends React.Component {
 
     render()
      {
-        console.log('this is in the render')
-        console.log("ESRRR")
-        console.log(this.state.ringimport)
+        // console.log('this is in the render')
+        // console.log("ESRRR")
+        // console.log(this.state.ringimport)
 
         return(
             <div className='earringdisplay'>
@@ -62,18 +62,3 @@ export default class EarClass extends React.Component {
     }
 }
   
-/* 
-function ColapseF (theWhat) {
-    const [theClass, setTheWhat] = useState(theWhat)
-    const [theHTML, setTheHTML] = useState(document.getElementsByClassName(props.getWhat))
-
-    return(
-        <div>
-        <button onClick={(e => this.closePop(theClass))}>Colapse</button>
-        <div>{this.state.popup}</div>
-        </div>
-        
-        
-    )
-
-} */

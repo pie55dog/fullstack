@@ -7,7 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <BoxClass boxname="desk" /> */}
+    <BoxClass boxname="desk" />
     <div className='allearmain'>
       <EarClass ringname="HotPinkDangles" />
       <EarClass ringname="WhiteDaisy" />

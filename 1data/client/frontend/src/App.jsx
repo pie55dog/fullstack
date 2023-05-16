@@ -2,8 +2,9 @@ import './App.css'
 import React from 'react'
 
 
-function fetchBox() {
-    const data = fetch("http://localhost:3000/box")
+function fetchBox(boxname) {
+    const apiUrl = 'http://localhost:3000/onebox/' + boxname
+    const data = fetch(apiUrl)
     .then(earring => {
         return earring.json()
        })
@@ -30,7 +31,7 @@ export default class BoxClass extends React.Component {
     }       
     
     componentDidMount() {
-        fetchBox () .then (result => {
+        fetchBox (this.state.boxname) .then (result => {
             this.setState({
                 boximport : result
             });
@@ -39,18 +40,22 @@ export default class BoxClass extends React.Component {
 
     render()
      {
-        console.log('this is in the render')
-        console.log("BOXIMPORT" + this.state.boximport)
-        console.log(this.state.boximport.map(box => <div>{box.items.color}</div>))
+        // console.log('this is in the render')
+        // console.log("BOXIMPORT" + this.state.boximport)
+        //console.log(this.state.boximport.items[0])
 
         return(
             <div>
             <p>hey :D</p>
+            <p>{this.state.boximport.boxmaster}</p>
+            {/*<p>{this.state.boximport.items}</p>}
 
-            <div>{this.state.boximport.map(box => <div>{box.boxmaster}</div>)}
+            
+
+           {/*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
              
             </div>
-            <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div>
+            <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div> */}
             </div>
 
             
@@ -58,19 +63,5 @@ export default class BoxClass extends React.Component {
         )
     }
 }
-  
-/* 
-function ColapseF (theWhat) {
-    const [theClass, setTheWhat] = useState(theWhat)
-    const [theHTML, setTheHTML] = useState(document.getElementsByClassName(props.getWhat))
 
-    return(
-        <div>
-        <button onClick={(e => this.closePop(theClass))}>Colapse</button>
-        <div>{this.state.popup}</div>
-        </div>
-        
-        
-    )
-
-} */
+//*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
