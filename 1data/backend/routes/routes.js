@@ -73,6 +73,25 @@ router.get('/earrings', (req, res) => {
     res.send(err)
   })
 })
+
+//
+//
+//
+//
+//
+router.get('/oneear/:name', (req, res) => {
+  EarringSchema.findOne({title: req.params.name}
+  )
+  .then(earring => {
+    console.log("succesfully got one ear")
+    console.log(earring)
+    res.send(earring)
+  })
+  .catch(err => {
+    console.error(err)
+    res.send(err)
+  })
+})
    
 module.exports = router
 
