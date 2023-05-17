@@ -8,6 +8,14 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BoxClass boxname="desk" />
+    <BoxClass boxname="kitchen" />
+    <BoxClass boxname="closet" />
+    <BoxClass boxname="somewhere" />
+
+    <p>
+    
+    </p>
+    <h2>ALL EARRINGS</h2>
     <div className='allearmain'>
       <EarClass ringname="HotPinkDangles" />
       <EarClass ringname="WhiteDaisy" />

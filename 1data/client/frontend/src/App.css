@@ -8,16 +8,19 @@ div.earringdisplay {
   display: flex;
   padding: 10px;
   justify-content: space-between;
+  width: 25%;
+  
   
 
 }
 
 div.allearmain {
-  width: 30%
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 img {
   width: 50%;
-  height: 20%;
   display: inline;
 }

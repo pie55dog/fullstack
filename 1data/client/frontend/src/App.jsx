@@ -1,5 +1,6 @@
 import './App.css'
 import React from 'react'
+import EarClass from './earring.jsx'
 
 
 function fetchBox(boxname) {
@@ -42,26 +43,42 @@ export default class BoxClass extends React.Component {
      {
         // console.log('this is in the render')
         // console.log("BOXIMPORT" + this.state.boximport)
-        //console.log(this.state.boximport.items[0])
+        console.log(this.state.boximport.items)
+        const itemlist = (this.state.boximport)
+        if (this.state.boximport.length != 0) {
+            return(
+                <div>
+    
 
-        return(
-            <div>
-            <p>hey :D</p>
-            <p>{this.state.boximport.boxmaster}</p>
-            {/*<p>{this.state.boximport.items}</p>}
+                <h2>{this.state.boximport.boxmaster}</h2>
+                <div className='allearmain' >
+                    <EarClass ringname={itemlist.items[0].title} />
+                </div>
+                {/*<div>{itemlist.map(stuff => <div>{stuff.title}</div>)}</div>
+                
+                {/*<p>{this.state.boximport.items}</p>}
+    
+                
+    
+               {/*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
+                 
+                </div>
+                <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div> */}
+                </div>
+    
 
-            
+                
+                
+            )
 
-           {/*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
-             
-            </div>
-            <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div> */}
-            </div>
+        }
 
-            
-            
-        )
+
+        
     }
 }
 
 //*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
+//
+//
+//CHANGES BACKGROUND TO COLOR OF EARRING but the red is discusting style={{backgroundColor: (itemlist.items[0].color)}}
