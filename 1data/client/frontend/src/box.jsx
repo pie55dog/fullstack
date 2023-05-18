@@ -41,18 +41,23 @@ export default class BoxClass extends React.Component {
 
     render()
      {
+    
         // console.log('this is in the render')
         // console.log("BOXIMPORT" + this.state.boximport)
         console.log(this.state.boximport.items)
         const itemlist = (this.state.boximport)
+        
         if (this.state.boximport.length != 0) {
             return(
                 <div>
     
 
                 <h2>{this.state.boximport.boxmaster}</h2>
+                
                 <div className='allearmain' >
+                    
                     <EarClass ringname={itemlist.items[0].title} />
+                    
                 </div>
                 {/*<div>{itemlist.map(stuff => <div>{stuff.title}</div>)}</div>
                 
