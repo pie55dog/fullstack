@@ -3,9 +3,11 @@ import React from 'react'
 import EarClass from './earring.jsx'
 
 
+//gets the box based on the box name passed in props
 function fetchBox(boxname) {
     const apiUrl = 'http://localhost:3000/onebox/' + boxname
     const data = fetch(apiUrl)
+    //copy pase from routs.js
     .then(earring => {
         return earring.json()
        })
@@ -28,13 +30,14 @@ export default class BoxClass extends React.Component {
            
   
         }
-        const fetchbox = fetchBox()
+
     }       
     
     componentDidMount() {
         fetchBox (this.state.boxname) .then (result => {
             this.setState({
                 boximport : result
+                //updating state
             });
         })
     }
@@ -42,33 +45,26 @@ export default class BoxClass extends React.Component {
     render()
      {
     
-        // console.log('this is in the render')
-        // console.log("BOXIMPORT" + this.state.boximport)
+
         console.log(this.state.boximport.items)
         const itemlist = (this.state.boximport)
         
+        //renders once the earrings in box data is recived
+        //would be cool to be able to render multiple earrings per box! using recusion or map??
         if (this.state.boximport.length != 0) {
             return(
                 <div>
     
 
-                <h2>{this.state.boximport.boxmaster}</h2>
+                    <h2>{this.state.boximport.boxmaster}</h2>
                 
-                <div className='allearmain' >
+                    <div className='allearmain' >
+                        
+                        <EarClass ringname={itemlist.items[0].title} />
+
+                    </div>
+
                     
-                    <EarClass ringname={itemlist.items[0].title} />
-                    
-                </div>
-                {/*<div>{itemlist.map(stuff => <div>{stuff.title}</div>)}</div>
-                
-                {/*<p>{this.state.boximport.items}</p>}
-    
-                
-    
-               {/*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
-                 
-                </div>
-                <div>{this.state.boximport.map(box => <div>{box.items.title}</div>)}</div> */}
                 </div>
     
 

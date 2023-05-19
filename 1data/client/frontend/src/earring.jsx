@@ -2,10 +2,10 @@ import './App.css'
 import React from 'react'
 
 
+//gets the earring by name, returns that earring
 function fetchRing(ringname) {
 	const apiUrl = 'http://localhost:3000/oneear/' + ringname
 	console.log(apiUrl)
-	const getBaby = ''
     const data = fetch(apiUrl)
     .then(earring => {
         return earring.json()
@@ -31,7 +31,8 @@ export default class EarClass extends React.Component {
         }
         const fetchring = fetchRing(this.state.ringname)
     }       
-    
+   
+//updates state, similar to box.jsx
     componentDidMount() {
         fetchRing (this.state.ringname) .then (result => {
             this.setState({
@@ -45,6 +46,9 @@ export default class EarClass extends React.Component {
         // console.log('this is in the render')
         // console.log("ESRRR")
         // console.log(this.state.ringimport)
+
+        
+        //takes the propertys of the now updated ring import and makes it look all nice
 
         return(
             <div className='earringdisplay'>
