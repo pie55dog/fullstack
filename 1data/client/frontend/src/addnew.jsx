@@ -17,7 +17,15 @@ import noimgae from './assets/download-5.png'
 //title
 
 function fetchNewEar(color, kind, price, profile, title) {
-    
+/*     var data = {
+
+            "color": {color},
+            "kind": {kind},
+            "price": {price},
+            "profile": {profile},
+            "title": {title}
+        
+    } */
     const apiUrl = 'http://localhost:3000/new/earring'
     const data = fetch(apiUrl, {
         method: "Post",
@@ -39,7 +47,7 @@ function fetchNewEar(color, kind, price, profile, title) {
 }
 
 
-export default class BoxClass extends React.Component {
+export default class NewCreation extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -58,7 +66,6 @@ export default class BoxClass extends React.Component {
 
     render()
      {      
-
 
         }
         

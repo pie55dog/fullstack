@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const EarringSchema = require('../models/Earring.js')
 const OutSchema = require('../models/Box.js')
+
 console.log(EarringSchema)
 
 //GENERAL

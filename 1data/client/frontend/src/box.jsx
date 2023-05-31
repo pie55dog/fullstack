@@ -63,6 +63,7 @@ export default class BoxClass extends React.Component {
                         <EarClass ringname={itemlist.items[0].title} />
 
                     </div>
+                    
 
                     
                 </div>

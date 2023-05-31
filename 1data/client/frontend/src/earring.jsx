@@ -57,7 +57,7 @@ export default class EarClass extends React.Component {
 						<p>{this.state.ringimport.color}, {this.state.ringimport.kind}</p>
 						<p>price: <em>{this.state.ringimport.price}</em></p>
 					</div>
-				<img src={this.state.ringimport.profile}></img>							     
+				<img src={this.state.ringimport.profile}></img>		
             </div>
 
             
