@@ -10,7 +10,8 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <marquee> <h1>WELCOME TO EARRING VILLE</h1></marquee>					     
+    <marquee> <h1>WELCOME TO EARRING VILLE</h1></marquee>			
+    <NewCreation/>		     
     <div className='locations'>
     <BoxClass boxname="desk" />
     <BoxClass boxname="kitchen" />
@@ -26,6 +27,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <EarClass ringname="Baby" />
       <EarClass ringname="Book" />
     </div>
-    <NewCreation/>
+
   </React.StrictMode>,
 )

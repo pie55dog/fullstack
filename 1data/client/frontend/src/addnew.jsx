@@ -16,20 +16,14 @@ import noimgae from './assets/download-5.png'
 //profile
 //title
 
-function fetchNewEar(color, kind, price, profile, title) {
-/*     var data = {
+function fetchNewEar(body) {
+    console.log(body)
 
-            "color": {color},
-            "kind": {kind},
-            "price": {price},
-            "profile": {profile},
-            "title": {title}
-        
-    } */
     const apiUrl = 'http://localhost:3000/new/earring'
+
     const data = fetch(apiUrl, {
         method: "Post",
-        body: JSON.stringify(data),
+        body: JSON.stringify(body),
         mode: 'cors',
         credentials: 'same-origin',
         headers: {
@@ -55,7 +49,7 @@ export default class NewCreation extends React.Component {
             userkind : null,
             userprice : null,
             userprofile: noimgae,
-            usertite: null,
+            usertile: null,
             
         }
     }       
@@ -63,10 +57,46 @@ export default class NewCreation extends React.Component {
     componentDidMount() {
        
     }
+    
+    inputUpdate(evt, prop) {
+        this.setState({
+            [prop] : evt.target.value
+        })
+        console.log(this.state)
+    }
 
-    render()
-     {      
+    onSubmit() {
+        console.log("FINAL STATE")
+        console.log(this.state)
+        var body = {
+        "color": (this.state.usercolor),
+        "kind": (this.state.userkind),
+        "price": (this.state.userprice),
+        "profile": (this.state.userprofile),
+        'title': (this.state.usertitle)}
+        console.log("body: " + body)
+        fetchNewEar(body)
+    }
 
+    render(){    
+        
+            return(
+            <React.Fragment>
+                <p>Color</p>
+                <input value={(this.state.usercolor)} onChange={evt => this.inputUpdate(evt, "usercolor")} />
+                <p>Type</p>
+                <input value={(this.state.userkind)} onChange={evt => this.inputUpdate(evt, "userkind")} />
+                <p>Price</p>
+                <input value={(this.state.userprice)} onChange={evt => this.inputUpdate(evt, "userprice")} />
+                <p>Image URL</p>
+                <input value={(this.state.userprofile)} onChange={evt => this.inputUpdate(evt, "userprofile")} />
+                <p>Name</p>
+                <input value={(this.state.usertitle)} onChange={evt => this.inputUpdate(evt, "usertitle")} />
+
+                <button onClick={() => this.onSubmit()}>Submit</button>
+                
+            </React.Fragment>
+            )
         }
         
 }
