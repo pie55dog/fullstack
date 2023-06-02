@@ -22,12 +22,12 @@ function fetchNewEar(body) {
     const apiUrl = 'http://localhost:3000/new/earring'
 
     const data = fetch(apiUrl, {
-        method: "Post",
+        method: "POST",
         body: JSON.stringify(body),
         mode: 'cors',
         credentials: 'same-origin',
         headers: {
-            'content-type' : 'aplication/jsor'
+            'content-type' : 'application/json'
         }
     })
     .then(earring => {
@@ -82,9 +82,10 @@ export default class NewCreation extends React.Component {
         
             return(
             <React.Fragment>
+                <h2>Create your own Earring!!</h2>
                 <p>Color</p>
                 <input value={(this.state.usercolor)} onChange={evt => this.inputUpdate(evt, "usercolor")} />
-                <p>Type</p>
+                <p>Kind: small, large, stud, hoop</p>
                 <input value={(this.state.userkind)} onChange={evt => this.inputUpdate(evt, "userkind")} />
                 <p>Price</p>
                 <input value={(this.state.userprice)} onChange={evt => this.inputUpdate(evt, "userprice")} />

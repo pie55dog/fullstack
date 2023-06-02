@@ -44,8 +44,8 @@ router.post('/new/earring', (req, res) => {
 
 //this deletes an earing
    
-router.delete('/remove/ear', (req, res) => {
-  EarringSchema.findOneAndDelete(req.body)
+router.delete('/remove/ear/:id', (req, res) => {
+  EarringSchema.findByIdAndDelete({_id: req.params.id}, req.body)
   .then(earring => {
     console.log("succesfully deleted new guy!")
     console.log(earring)
