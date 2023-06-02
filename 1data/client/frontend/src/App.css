@@ -14,12 +14,17 @@ div.earringdisplay {
 
 
 div.allearmain {
-  width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
 img {
-  width: 50%;
   display: inline;
+  width: 50%
+
+}
+
+div.boxdisplay {
+  display: inline;
+
 }

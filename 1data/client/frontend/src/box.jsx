@@ -53,16 +53,15 @@ export default class BoxClass extends React.Component {
         //would be cool to be able to render multiple earrings per box! using recusion or map??
         if (this.state.boximport.length != 0) {
             return(
-                <div>
+                <div className='boxdisplay' >
     
 
                     <h2>{this.state.boximport.boxmaster}</h2>
                 
-                    <div className='allearmain' >
-                        
-                        <EarClass ringname={itemlist.items[0].title} />
+                    <span>
+                        <span >{this.state.boximport.items.map(earring => <span><EarClass ringname={earring.title} /></span>)}</span>
 
-                    </div>
+                    </span>
                     
 
                     

@@ -15,17 +15,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     {/* creates a new earring!*/}
     <NewCreation/>
 
-  {/* displays the boxes*/}
-    <div className='locations'>
-    <BoxClass boxname="desk" />
-    <BoxClass boxname="kitchen" />
-    <BoxClass boxname="closet" />
-    <BoxClass boxname="somewhere" />
-    </div>
-    <p></p>
+
 
     <h2>ALL EARRINGS</h2>
     <AllRing/>
+
+
    {/*  
    This is the previous all earring module. 
    It is now much more efficent-- made up of one tag: <AllRing/>
@@ -38,5 +33,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <EarClass ringname="Book" />
     </div> */}
 
+    <h1>boxes</h1>
+  
+  {/* displays the boxes*/}
+  <div className='locations'>
+    <BoxClass boxname="desk" />
+    <BoxClass boxname="kitchen" />
+    <BoxClass boxname="closet" />
+    <BoxClass boxname="somewhere" />
+    </div>
+    <p></p>
   </React.StrictMode>,
 )
