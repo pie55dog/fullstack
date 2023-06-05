@@ -42,10 +42,26 @@ router.post('/new/earring', (req, res) => {
 })
 
 
-//this deletes an earing
+//this deletes an earing by id
    
-router.delete('/remove/ear/:id', (req, res) => {
+router.delete('/remove/ear/id/:id', (req, res) => {
   EarringSchema.findByIdAndDelete({_id: req.params.id}, req.body)
+  .then(earring => {
+    console.log("succesfully deleted new guy!")
+    console.log(earring)
+    res.json(earring)
+  })
+  .catch(err => {
+    console.error(err)
+    console.log('THIS ERROR IS UGLIER THAN UR RECEDING HAIRLINE <3333')
+  })
+
+})
+
+//this deletes an earing by title
+   
+router.delete('/remove/ear/title/:name', (req, res) => {
+  EarringSchema.findOneAndDelete({title: req.params.name}, req.body)
   .then(earring => {
     console.log("succesfully deleted new guy!")
     console.log(earring)

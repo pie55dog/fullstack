@@ -28,3 +28,8 @@ div.boxdisplay {
   display: inline;
 
 }
+
+div.locations{
+  display: inline-block;
+
+}

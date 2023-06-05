@@ -44,10 +44,7 @@ export default class AllRing extends React.Component {
      {
         console.log('this is in the render')
         console.log(this.state.rings)
-/*         const rows = [];
-        for (let i = 0; i < length[rings]; i++) {
-            rows.push(<EarClass ringname= />);
-        } */
+
         // console.log("ESRRR")
         // console.log(this.state.ringimport)
         

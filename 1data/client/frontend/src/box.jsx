@@ -59,7 +59,7 @@ export default class BoxClass extends React.Component {
                     <h2>{this.state.boximport.boxmaster}</h2>
                 
                     <span>
-                        <span >{this.state.boximport.items.map(earring => <span><EarClass ringname={earring.title} /></span>)}</span>
+                        <span >{this.state.boximport.items.map(earring =><span><EarClass ringname={earring.title} /></span>)}</span>
 
                     </span>
                     
@@ -80,6 +80,6 @@ export default class BoxClass extends React.Component {
 }
 
 //*  <div>{this.state.boximport.map(box => <div>{box.items}</div>)}
-//
+//<EarClass ringname={earring.title} />
 //
 //CHANGES BACKGROUND TO COLOR OF EARRING but the red is discusting style={{backgroundColor: (itemlist.items[0].color)}}
